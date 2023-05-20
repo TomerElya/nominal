@@ -21,4 +21,4 @@ def auth_callback():
     session[SESSION_REALM_ID] = request.args.get("realmId")
     refresh_auth_token(auth_client.refresh_token, session)
 
-    return str(auth_client.x_refresh_token_expires_in)
+    return ''
