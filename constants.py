@@ -1,0 +1,5 @@
+SESSION_ACCESS_TOKEN = "token"
+SESSION_REFRESH_TOKEN = "refreshToken"
+SESSION_REALM_ID = "realmId"
+SESSION_TOKEN_EXPIRATION = "token_expiration"
+SESSION_REFRESH_EXPIRATION = "refresh_expiration"
