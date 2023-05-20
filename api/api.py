@@ -4,10 +4,14 @@ from flask_session import Session
 
 from api.accounts.accounts_controller import accounts_bp
 from api.auth.auth_controller import auth_bp
+from api.auth.auth_middleware import auth_middleware_bp
+from api.throttling import throttling_bp
 
 app = Flask("nominal")
 
 app.register_blueprint(auth_bp)
+app.register_blueprint(throttling_bp)
+app.register_blueprint(auth_middleware_bp)
 app.register_blueprint(accounts_bp)
 
 # Could leverage sessions redis storage in order to allow centralized session storage with access across the entire

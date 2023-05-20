@@ -3,7 +3,7 @@ import datetime
 from quickbooks import QuickBooks
 
 from constants import SESSION_ACCESS_TOKEN, SESSION_REFRESH_TOKEN, SESSION_TOKEN_EXPIRATION, SESSION_REFRESH_EXPIRATION, \
-    SESSION_REALM_ID
+    SESSION_REALM_ID, SESSION_LAST_REFRESH
 from auth import auth_client
 from quick_books import initialize_quickbooks_client
 
@@ -20,4 +20,4 @@ def refresh_auth_token(refresh_token, session):
     refresh_token_expire = now + datetime.timedelta(seconds=auth_client.x_refresh_token_expires_in)
     session[SESSION_REFRESH_EXPIRATION] = refresh_token_expire.timestamp()
 
-    initialize_quickbooks_client(session[SESSION_REALM_ID])
+    session[SESSION_LAST_REFRESH] = datetime.datetime.now().timestamp()
