@@ -1,5 +1,5 @@
-from flask import Flask, session
 import requests
+from flask import Flask, session
 from flask_session import Session
 
 from api.accounts.accounts_controller import accounts_bp
@@ -33,4 +33,3 @@ def get_company():
         headers=headers
     )
     return res.json()
-

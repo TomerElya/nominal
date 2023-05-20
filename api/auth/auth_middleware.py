@@ -14,7 +14,7 @@ auth_middleware_bp = Blueprint("auth_middleware", __name__)
 @auth_middleware_bp.before_app_request
 def auth_middleware():
     if request.endpoint not in ['auth.quick_books_auth', 'auth.auth_callback']:
-        if SESSION_ACCESS_TOKEN not in session or SESSION_REFRESH_TOKEN not in session or SESSION_TOKEN_EXPIRATION not\
+        if SESSION_ACCESS_TOKEN not in session or SESSION_REFRESH_TOKEN not in session or SESSION_TOKEN_EXPIRATION not \
                 in session or SESSION_REALM_ID not in session:
             abort(401)
 

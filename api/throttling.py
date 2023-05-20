@@ -13,7 +13,7 @@ def throttling():
         session[SESSION_MINUTE_API_CALLS] = 1
         session[SESSION_CURRENT_MINUTE] = datetime.datetime.now().minute
 
-    if session[SESSION_MINUTE_API_CALLS]+1 > MAX_CALLS_PM:
+    if session[SESSION_MINUTE_API_CALLS] + 1 > MAX_CALLS_PM:
         abort(429)
 
     curr_min = datetime.datetime.now().minute
@@ -22,4 +22,3 @@ def throttling():
         session[SESSION_MINUTE_API_CALLS] = 1
     else:
         session[SESSION_MINUTE_API_CALLS] = session[SESSION_MINUTE_API_CALLS] + 1
-

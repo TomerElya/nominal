@@ -1,5 +1,4 @@
 import datetime
-from threading import Lock
 
 from intuitlib.client import AuthClient
 from intuitlib.enums import Scopes

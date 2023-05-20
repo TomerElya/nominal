@@ -4,4 +4,4 @@ secret = b1lMJrmOAKlFEvkY1xZusmV4XBE9Lp7fn1mZJq1d
 redirect_url = http://localhost:5000/auth-callback
 
 [api]
-max_calls_pm = 35
+max_calls_pm = 1000

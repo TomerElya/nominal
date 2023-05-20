@@ -1,11 +1,8 @@
 import datetime
 
-from quickbooks import QuickBooks
-
-from constants import SESSION_ACCESS_TOKEN, SESSION_REFRESH_TOKEN, SESSION_TOKEN_EXPIRATION, SESSION_REFRESH_EXPIRATION, \
-    SESSION_REALM_ID, SESSION_LAST_REFRESH
 from auth import auth_client
-from quick_books import initialize_quickbooks_client
+from constants import SESSION_ACCESS_TOKEN, SESSION_REFRESH_TOKEN, SESSION_TOKEN_EXPIRATION, SESSION_REFRESH_EXPIRATION, \
+    SESSION_LAST_REFRESH
 
 
 def refresh_auth_token(refresh_token, session):
