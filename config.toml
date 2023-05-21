@@ -2,6 +2,7 @@
 client_id = ABV7qAnhn2leYcqd81eh8MF1akm4aeJaeYHgi1GUBS04xEDstd
 secret = b1lMJrmOAKlFEvkY1xZusmV4XBE9Lp7fn1mZJq1d
 redirect_url = http://localhost:5000/auth-callback
+api_url = https://sandbox-quickbooks.api.intuit.com
 
 [api]
 max_calls_pm = 1000

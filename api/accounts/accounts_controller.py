@@ -1,12 +1,12 @@
-from flask import Blueprint
-from quickbooks.objects.account import Account
+from flask import Blueprint, session
 
-import quick_books
+from constants import SESSION_REALM_ID, SESSION_ACCESS_TOKEN
+from quick_books.models.accounts.accounts_api import get_accounts_query
 
 accounts_bp = Blueprint("accounts", __name__)
 
 
 @accounts_bp.route("/accounts")
 def get_accounts():
-    accs = Account.all(qb=quick_books.quickbooks_client)
-    return [acc.to_json() for acc in accs]
+    accs = get_accounts_query(session[SESSION_ACCESS_TOKEN], session[SESSION_REALM_ID], "select * from Account")
+    return [acc.__json__() for acc in accs]

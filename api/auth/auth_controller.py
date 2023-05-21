@@ -1,7 +1,5 @@
 from flask import redirect, request, session, Blueprint
 
-from flask import redirect, request, session, Blueprint
-
 from api.auth.auth_utils import refresh_auth_token
 from auth import auth_client, scopes
 from constants import SESSION_REALM_ID
