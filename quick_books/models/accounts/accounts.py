@@ -1,4 +1,5 @@
 import json
+
 from quick_books.models.accounts.accounts_interface import Classification, AccountType, CurrencyRef, \
     ModificationMetaData
 
@@ -10,8 +11,6 @@ class Account:
     active: bool
     balance: int
     metadata: ModificationMetaData
-
-
 
     def __init__(self, fully_qualified_name, domain, name, classification, account_sub_type, currency_ref,
                  current_balance_with_sub_accounts, sparse, metadata, account_type, current_balance, active,
