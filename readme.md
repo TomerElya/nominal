@@ -1,7 +1,12 @@
-**Intro**
+**Set up manual**
+In order to run the project, first adjust your configuration (config.toml) to match the client's credentials and environment settings.
+Once the configuration is set up, all that is left to do is to simply 'python main.py'. This will run the Flask application.
+A requirements.txt is attached for required packages.
 
-In order to run the project, you must first authenticate yourself through /auth route.
-Once authenticated, your session credentials are saved over the HTTP session and used to interact with QuickBooks API.
+**Integration**
+Once the application is running, the user is first required to authenticate through http://localhost:5000/auth. 
+This will require the user to log into his QuickBooks account, once that's done he'll be re-routed to the callback route.
+From this point on, the application takes care of tokenization, refreshment, sync between resources et cetera.
 
 **Notes**
 
