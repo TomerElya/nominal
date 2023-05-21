@@ -1,7 +1,18 @@
 import json
+from quick_books.models.accounts.accounts_interface import Classification, AccountType, CurrencyRef, \
+    ModificationMetaData
 
 
 class Account:
+    classification: Classification
+    currency_ref: CurrencyRef
+    account_type: AccountType
+    active: bool
+    balance: int
+    metadata: ModificationMetaData
+
+
+
     def __init__(self, fully_qualified_name, domain, name, classification, account_sub_type, currency_ref,
                  current_balance_with_sub_accounts, sparse, metadata, account_type, current_balance, active,
                  sync_token, id, sub_account):
@@ -32,7 +43,7 @@ class Account:
             CurrencyRef.from_json(obj.get("CurrencyRef")),
             obj.get('CurrentBalanceWithSubAccounts'),
             obj.get('sparse'),
-            obj.get('MetaData'),
+            ModificationMetaData.from_json(obj.get('MetaData')),
             obj.get('AccountType'),
             obj.get('CurrentBalance'),
             obj.get('Active'),
@@ -47,19 +58,3 @@ class Account:
 
     def __json__(self):
         return json.dumps(self, default=lambda o: o.__dict__)
-
-
-class CurrencyRef:
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
-
-    @staticmethod
-    def from_json(obj):
-        return CurrencyRef(
-            obj.get("name"),
-            obj.get("value")
-        )
-
-    def __json__(self):
-        return self.__dict__
